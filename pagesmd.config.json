@@ -1,0 +1,12 @@
+{
+  "pageOrder": [
+    "Introduction",
+    "example/One",
+    "example/Two",
+    "example/Three"
+  ],
+  "build": {
+    "minifyJs": true,
+    "minifyCss": true
+  }
+}
