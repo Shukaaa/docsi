@@ -1,4 +1,4 @@
-### This is Code 2 (Styling)
+## This is Code 2 (Styling)
 
 <div class="test">
     Define classes to style elements

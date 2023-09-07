@@ -8,7 +8,6 @@ body {
     line-height: 1.5;
     color: #333;
     background: #fff;
-    padding: 1em;
 }
 
 pre {
@@ -19,8 +18,8 @@ pre {
     border: 1px solid #e1e4e8;
 }
 
-.container {
-    max-width: 800px;
+#content-container {
+    max-width: max-content;
     margin: 0 auto;
 }
 

@@ -1,3 +1,3 @@
-# Welcome to the pages.md Demo
+# Dcosi Demo
 
 > Welcome

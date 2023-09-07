@@ -1,4 +1,4 @@
-### This is Code 3 (JS)
+## This is Code 3 (JS)
 
 <div onclick="showAlert()">
     Define events to handle user interaction

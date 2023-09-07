@@ -1,5 +1,5 @@
 const grunt = require('grunt');
-const config = grunt.file.readJSON('pagesmd.config.json');
+const config = grunt.file.readJSON('docsi.config.json');
 const pageOrder = config['pageOrder'];
 const minifyJs = config['build']['minifyJs'];
 const minifyCss = config['build']['minifyCss'];
@@ -36,6 +36,9 @@ grunt.initConfig({
         },
         md: {
             src: ['dist/index.md']
+        },
+        temp: {
+            src: ['temp']
         }
     },
     copy: {
@@ -90,7 +93,7 @@ grunt.initConfig({
     },
     watch: {
         configs: {
-            files: ['pagesmd.config.json', 'src/template.html'],
+            files: ['docsi.config.json', 'src/template.html'],
             tasks: ['concat', 'markdown']
         },
         md: {
@@ -132,13 +135,13 @@ grunt.registerTask('default', () => {
 });
 
 grunt.registerTask('dev', () => {
-    grunt.tasks(['concat', 'markdown', 'copy', 'watch'], {}, () => {
+    grunt.tasks(['clean:temp', 'concat', 'markdown', 'copy:assets', 'watch'], {}, () => {
         grunt.log.writeln('Development server started.');
     });
 });
 
 grunt.registerTask('build', () => {
-    grunt.tasks(['concat', 'markdown', 'clean:dist', 'copy', 'clean:md']);
+    grunt.tasks(['clean:temp', 'concat', 'markdown', 'clean:dist', 'copy', 'clean:md']);
 
     if (minifyJs) {
         grunt.task.run('uglify');

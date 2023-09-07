@@ -1,4 +1,4 @@
-### This is Code 1
+## This is Code 1
 
 ```jsx
 const a = 1;
@@ -7,6 +7,8 @@ const c = a + b;
 ```
 
 [Link text Here](https://link-url-here.org)
+
+### Table
 
 Basic Table:
 
