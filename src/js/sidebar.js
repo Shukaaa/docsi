@@ -1,69 +1,78 @@
 // Default Script to initialize the sidebar
 // Feel free to customize or remove as needed
 
-addEventListener("DOMContentLoaded", () => {
-    // get the body element
+document.addEventListener("DOMContentLoaded", () => {
     const contentContainer = document.getElementById("content-container");
-
-    let sidebarElement = document.createElement("nav");
-    sidebarElement.id = "sidebar";
-    sidebarElement.classList.add("sidebar");
-
-    for (const sidebarElementSettings of getSidebarOrder(contentContainer)) {
-        sidebarElement.appendChild(createSidebarElement(sidebarElementSettings));
-    }
+    const sidebarElement = createSidebar(contentContainer);
 
     contentContainer.parentElement.appendChild(sidebarElement);
 });
 
+function createSidebar(contentContainer) {
+    const sidebarElement = document.createElement("nav");
+    sidebarElement.id = "sidebar";
+    sidebarElement.classList.add("sidebar");
+
+    const sidebarOrder = getSidebarOrder(contentContainer);
+
+    for (const sidebarElementSettings of sidebarOrder) {
+        const sidebarElementElement = createSidebarElement(sidebarElementSettings);
+        sidebarElement.appendChild(sidebarElementElement);
+    }
+
+    return sidebarElement;
+}
+
 function getSidebarOrder(contentContainer) {
-    let sidebarOrder = []
+    const sidebarOrder = [];
+
+    let currentH1, currentH2;
+
     for (const contentElement of contentContainer.children) {
         if (contentElement.tagName === "H1") {
-            sidebarOrder.push({
-                "title": contentElement.innerText,
-                "id": contentElement.id,
-                "children": []
-            })
-        }
-
-        if (contentElement.tagName === "H2") {
-            sidebarOrder[sidebarOrder.length - 1].children.push({
-                "title": contentElement.innerText,
-                "id": contentElement.id,
-                "children": []
-            })
-        }
-
-        if (contentElement.tagName === "H3") {
-            sidebarOrder[sidebarOrder.length - 1].children[sidebarOrder[sidebarOrder.length - 1].children.length - 1].children.push({
-                "title": contentElement.innerText,
-                "id": contentElement.id,
-                "children": []
-            })
+            currentH1 = {
+                title: contentElement.innerText,
+                id: contentElement.id,
+                children: [],
+            };
+            sidebarOrder.push(currentH1);
+        } else if (contentElement.tagName === "H2") {
+            currentH2 = {
+                title: contentElement.innerText,
+                id: contentElement.id,
+                children: [],
+            };
+            currentH1.children.push(currentH2);
+        } else if (contentElement.tagName === "H3") {
+            currentH2.children.push({
+                title: contentElement.innerText,
+                id: contentElement.id,
+                children: [],
+            });
         }
     }
+
     return sidebarOrder;
 }
 
 function createSidebarElement(sidebarElement) {
-    // wrap text in a link
-    let sidebarElementLink = document.createElement("a");
+    const sidebarElementLink = document.createElement("a");
     sidebarElementLink.innerText = sidebarElement.title;
     sidebarElementLink.href = "#" + sidebarElement.id;
 
-    // create the sidebar element
-    let sidebarElementElement = document.createElement("div");
+    const sidebarElementElement = document.createElement("div");
     sidebarElementElement.classList.add("sidebar-element");
     sidebarElementElement.appendChild(sidebarElementLink);
 
-    // create the sidebar element children
-    let sidebarElementChildren = document.createElement("div");
-    sidebarElementChildren.classList.add("sidebar-element-children");
-    for (const sidebarElementChild of sidebarElement.children) {
-        sidebarElementChildren.appendChild(createSidebarElement(sidebarElementChild));
+    if (sidebarElement.children.length > 0) {
+        const sidebarElementChildren = document.createElement("div");
+        sidebarElementChildren.classList.add("sidebar-element-children");
+        for (const sidebarElementChild of sidebarElement.children) {
+            const childElement = createSidebarElement(sidebarElementChild);
+            sidebarElementChildren.appendChild(childElement);
+        }
+        sidebarElementElement.appendChild(sidebarElementChildren);
     }
-    sidebarElementElement.appendChild(sidebarElementChildren);
 
     return sidebarElementElement;
 }

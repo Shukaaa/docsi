@@ -7,6 +7,7 @@
   ],
   "build": {
     "minifyJs": true,
-    "minifyCss": true
+    "minifyCss": true,
+    "buildDir": "dist"
   }
 }

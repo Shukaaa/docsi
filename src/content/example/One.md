@@ -1,41 +1,14 @@
-## This is Code 1
+## What is Docsi?
 
-```jsx
-const a = 1;
-const b = 2;
-const c = a + b;
-```
+Docsi is a static site generator for documentation. <br/>
+It is written in JS and uses Markdown as its markup language. <br/>
+It is designed to be simple to use and easy to extend. <br/>
 
-[Link text Here](https://link-url-here.org)
+## How to use Docsi?
 
-### Table
+You already are! <br/>
+Now go and edit the content of this page in `src\content\example\One.md` <br/>
+> I give you a hint: it's a Markdown file. 🤯🤯🤯 <br/>
 
-Basic Table:
-
-| Header 1 | Header 2 |
-| -------- | -------- |
-| Cell 1   | Cell 2   |
-
-1. a
-2. b
-3. c
-
-<br/>
-
-- a
-- b
-- c
-
----
-
-**bold text**
-~~The world is flat.~~
-*italicized text*
-
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-
-I need to highlight these ==very important words==.
-
-X^2^
+Now it's time to go and write some documentation! <br/>
+> If you need help, just continue reading. 😊 <br/>

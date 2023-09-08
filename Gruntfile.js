@@ -3,6 +3,7 @@ const config = grunt.file.readJSON('docsi.config.json');
 const pageOrder = config['pageOrder'];
 const minifyJs = config['build']['minifyJs'];
 const minifyCss = config['build']['minifyCss'];
+const buildDir = config['build']['buildDir'];
 
 grunt.loadNpmTasks('grunt-markdown');
 grunt.loadNpmTasks('grunt-contrib-concat');
@@ -32,10 +33,10 @@ grunt.initConfig({
     },
     clean: {
         dist: {
-            src: ['dist']
+            src: [buildDir]
         },
         md: {
-            src: ['dist/index.md']
+            src: [buildDir + '/index.md']
         },
         temp: {
             src: ['temp']
@@ -58,7 +59,7 @@ grunt.initConfig({
                     expand: true,
                     cwd: 'temp/',
                     src: ['**'],
-                    dest: 'dist/'
+                    dest: buildDir + '/'
                 }
             ]
         }
@@ -116,14 +117,14 @@ grunt.initConfig({
     uglify: {
         script: {
             files: {
-                'dist/script.js': ['dist/script.js']
+                [buildDir + '/script.js']: [buildDir + '/script.js']
             }
         }
     },
     cssmin: {
         style: {
             files: {
-                'dist/style.css': ['dist/style.css']
+                [buildDir + '/style.css']: [buildDir + '/style.css']
             }
         }
     }
