@@ -32,15 +32,15 @@
       - The `logo.png` file is the logo of the static site. <br/>
     - The `content` folder contains all the content files. <br/>
       - All the files in the `content` folder will be converted to HTML. (Currently only Markdown is supported) <br/>
-    - The `css` folder contains all the CSS files. <br/>
+    - The `css` folder contains all the CSS files (All files get compressed to one file "`style.css`"). <br/>
       - The `default.css` file is the default CSS file that contains the styling for the Markdown Elements. <br/>
       - The `highlight.css` file is the CSS file for the code highlighting theme. <br/>
       - The `sidebar.css` file is the CSS file for the sidebar. <br/>
-    - The `js` folder contains all the JS files. <br/>
+    - The `js` folder contains all the JS files. (All files get compressed to one file "`script.js`"). <br/>
       - The `sidebar.js` file is the JS file for the sidebar. <br/>
     - The `template.html` file is the template file for the static site. <br/>
 - The `.gitignore` file contains all the files that should be ignored by git. <br/>
-- The `docsi.config.json` file contains the configuration for the static site. <br/>
+- The `docsi.config.json` file contains the configuration for the static site & build process (see more below). <br/>
 - The `package.json` file contains all the dependencies and scripts. <br/>
 - The `package-lock.json` file contains all the dependencies and their versions. <br/>
 - The `README.md` file contains the documentation for the static site. <br/>

@@ -90,6 +90,9 @@ Then you have to register it in the `docsi.config.json` file. <br/>
 }
 ```
 
+> Please note that docsi only creates single page applications. <br/>
+> So all theses pages will be rendered in the same HTML file. You can just define the order of the pages. <br/>
+
 ### Adding Scripts
 
 If you want to add a new script, you can create a new JS file in the `js` folder. <br/>
