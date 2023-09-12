@@ -9,3 +9,5 @@
 - 👶 It is designed to be simple to use and easy to extend. <br/>
 - 🎨 It already comes with a default theme, but you can easily change it. <br/>
 - ⚡ You can also run and build it super fast, because it uses Vite and Grunt. <br/>
+
+> See CLI Project for installation and further informations https://github.com/Shukaaa/docsi-cli
