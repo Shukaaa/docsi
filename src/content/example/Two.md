@@ -1,5 +1,26 @@
 ## Environment
 
+### Development
+1. Install the grunt CLI. <br/>
+
+```bash
+npm install -g grunt-cli
+```
+
+2. Start the development server. <br/>
+
+```bash
+npm run dev
+```
+
+The development server will be started on `http://127.0.0.1:5173/temp/index.html`. <br/>
+> Note: The development server is only for development purposes. <br/>
+> The static site will be generated in the `dist` folder. <br/>
+
+### Build
+To build the static site, you can run `npm run build` in the root folder. <br/>
+The static site will be generated in the `dist` folder. <br/>
+
 ### Folder Structure
 ```
 - node_modules/
@@ -69,30 +90,3 @@ As you can see, there is a `docsi.config.json` file in the root folder. <br/>
 
 The `pageOrder` array contains the order of the pages and how they will be displayed. <br/>
 The `build` object contains the build options. <br/>
-
-### Development
-1. Install all dependencies. <br/>
-
-```bash
-npm install
-```
-
-2. Install the grunt CLI. <br/>
-
-```bash
-npm install -g grunt-cli
-```
-
-3. Start the development server. <br/>
-
-```bash
-npm run dev
-```
-
-The development server will be started on `http://127.0.0.1:5173/temp/index.html`. <br/>
-> Note: The development server is only for development purposes. <br/>
-> The static site will be generated in the `dist` folder. <br/>
-
-### Build
-To build the static site, you can run `npm run build` in the root folder. <br/>
-The static site will be generated in the `dist` folder. <br/>
