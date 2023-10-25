@@ -21,3 +21,13 @@
 .sidebar-element-children {
     padding-left: 1em;
 }
+
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+
+    #content-container {
+        padding-left: 0;
+    }
+}
