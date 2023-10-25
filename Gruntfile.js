@@ -12,6 +12,7 @@ grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-clean');
 grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
+grunt.loadNpmTasks('grunt-prettify');
 
 grunt.initConfig({
     concat: {
@@ -127,6 +128,12 @@ grunt.initConfig({
                 [buildDir + '/style.css']: [buildDir + '/style.css']
             }
         }
+    },
+    prettify: {
+        one: {
+            src: buildDir + '/index.html',
+            dest: buildDir + '/index.html'
+        }
     }
 });
 
@@ -142,7 +149,7 @@ grunt.registerTask('dev', () => {
 });
 
 grunt.registerTask('build', () => {
-    grunt.tasks(['clean:temp', 'concat', 'markdown', 'clean:dist', 'copy', 'clean:md']);
+    grunt.tasks(['clean:temp', 'concat', 'markdown', 'clean:dist', 'copy', 'clean:md', 'prettify']);
 
     if (minifyJs) {
         grunt.task.run('uglify');
