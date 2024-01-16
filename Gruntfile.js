@@ -1,5 +1,5 @@
 const grunt = require('grunt');
-const config = grunt.file.readJSON('docsi.config.json');
+const config = require('./docsi.config.js');
 const pageOrder = config['pageOrder'];
 const minifyJs = config['build']['minifyJs'];
 const minifyCss = config['build']['minifyCss'];
@@ -79,16 +79,21 @@ grunt.initConfig({
             ],
             options: {
                 template: fileLocations.template,
-                preCompile: (src, context) => {
-                    // checkbox - [ ] || - [x]
-                    src = src.replace(/- \[ \]/g, '- <input type="checkbox" disabled>');
-                    src = src.replace(/- \[x\]/g, '- <input type="checkbox" checked disabled>');
+                preCompile: (src) => {
+                    const preCompile = config.markdown.preCompile;
 
-                    // mark special words ==word==
-                    src = src.replace(/==(.+?)==/g, '<mark>$1</mark>');
+                    if (preCompile) {
+                        return preCompile(src);
+                    }
 
-                    // sup numbers ^2^ to <sup>2</sup>
-                    src = src.replace(/\^(\d+)\^/g, '<sup>$1</sup>');
+                    return src;
+                },
+                postCompile: (src) => {
+                    const postCompile = config.markdown.postCompile;
+
+                    if (postCompile) {
+                        return postCompile(src);
+                    }
 
                     return src;
                 }
@@ -97,11 +102,11 @@ grunt.initConfig({
     },
     watch: {
         configs: {
-            files: ['docsi.config.json', fileLocations.template],
+            files: ['docsi.config.js', fileLocations.template],
             tasks: ['concat', 'markdown']
         },
         md: {
-            files: [fileLocations.pages + '/*.md', fileLocations.pages + '/**/*.md', fileLocations.pages + '/**/**/*.md'],
+            files: [folderLocations.pages + '/*.md', folderLocations.pages + '/**/*.md', folderLocations.pages + '/**/**/*.md'],
             tasks: ['concat', 'markdown']
         },
         css: {
