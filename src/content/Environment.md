@@ -27,10 +27,8 @@ The static site will be generated in the `dist` folder. <br/>
     - assets/
         - logo.png
     - content/
-        - example/
-            - One.md
-            - Two.md
-            - Three.md
+        - Environment.md
+        - Examples.md
         - Introduction.md
     - css/
         - default.css
@@ -51,7 +49,7 @@ The static site will be generated in the `dist` folder. <br/>
     - The `assets` folder contains all the assets. (changeable inside the config) <br/>
       - The `logo.png` file is the logo of the static site. <br/>
     - The `content` folder contains all the content files. (changeable inside the config) <br/>
-      - All the files in the `content` folder will be converted to HTML. (Currently only Markdown is supported) <br/>
+      - All the files in the `content` folder will be converted to HTML. (Only Markdown is supported) <br/>
     - The `css` folder contains all the CSS files (All files get compressed to one file "`style.css`", changeable inside the config). <br/>
       - The `default.css` file is the default CSS file that contains the styling for the Markdown Elements. <br/>
       - The `highlight.css` file is the CSS file for the code highlighting theme. <br/>
@@ -76,9 +74,8 @@ const docsiConfig = {
     // Order how pages are merged together
     pageOrder: [
         "Introduction",
-        "example/One",
-        "example/Two",
-        "example/Three"
+        "Environment",
+        "Examples"
     ],
     build: {
         minifyJs: true,

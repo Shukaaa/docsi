@@ -2,9 +2,8 @@ const docsiConfig = {
   // Order how pages are merged together
   pageOrder: [
     "Introduction",
-    "example/One",
-    "example/Two",
-    "example/Three"
+    "Environment",
+    "Examples",
   ],
   build: {
     minifyJs: true,
