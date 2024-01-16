@@ -4,6 +4,8 @@ const pageOrder = config['pageOrder'];
 const minifyJs = config['build']['minifyJs'];
 const minifyCss = config['build']['minifyCss'];
 const buildDir = config['build']['buildDir'];
+const fileLocations = config['fileLocations'];
+const folderLocations = config['folderLocations'];
 
 grunt.loadNpmTasks('grunt-markdown');
 grunt.loadNpmTasks('grunt-contrib-concat');
@@ -20,15 +22,15 @@ grunt.initConfig({
             separator: '\n\n'
         },
         md: {
-            src: pageOrder.map(page => `src/content/${page}.md`),
+            src: pageOrder.map(page => `${folderLocations.pages}/${page}.md`),
             dest: 'temp/index.md'
         },
         css: {
-            src: ['src/css/*.css', 'src/css/**/*.css', 'src/css/**/**/*.css'],
+            src: [folderLocations.css + '/*.css', folderLocations.css + '/**/*.css', folderLocations.css + '/**/**/*.css'],
             dest: 'temp/style.css'
         },
         js: {
-            src: ['src/js/*.js', 'src/js/**/*.js', 'src/js/**/**/*.js'],
+            src: [folderLocations.js + '/*.js', folderLocations.js +  '/**/*.js', folderLocations.js +  '/**/**/*.js'],
             dest: 'temp/script.js'
         }
     },
@@ -48,7 +50,7 @@ grunt.initConfig({
             files: [
                 {
                     expand: true,
-                    cwd: 'src/assets/',
+                    cwd: folderLocations.assets + '/',
                     src: ['**'],
                     dest: 'temp/assets/'
                 }
@@ -76,7 +78,7 @@ grunt.initConfig({
                 }
             ],
             options: {
-                template: 'src/template.html',
+                template: fileLocations.template,
                 preCompile: (src, context) => {
                     // checkbox - [ ] || - [x]
                     src = src.replace(/- \[ \]/g, '- <input type="checkbox" disabled>');
@@ -95,23 +97,23 @@ grunt.initConfig({
     },
     watch: {
         configs: {
-            files: ['docsi.config.json', 'src/template.html'],
+            files: ['docsi.config.json', fileLocations.template],
             tasks: ['concat', 'markdown']
         },
         md: {
-            files: ['src/content/*.md', 'src/content/**/*.md', 'src/content/**/**/*.md'],
+            files: [fileLocations.pages + '/*.md', fileLocations.pages + '/**/*.md', fileLocations.pages + '/**/**/*.md'],
             tasks: ['concat', 'markdown']
         },
         css: {
-            files: ['src/css/*.css', 'src/css/**/*.css', 'src/css/**/**/*.css'],
+            files: [folderLocations.css + '/*.css', folderLocations.css + '/**/*.css', folderLocations.css + '/**/**/*.css'],
             tasks: ['concat']
         },
         js: {
-            files: ['src/js/*.js', 'src/js/**/*.js', 'src/js/**/**/*.js'],
+            files: [folderLocations.js + '/*.js', folderLocations.js +  '/**/*.js', folderLocations.js +  '/**/**/*.js'],
             tasks: ['concat']
         },
         assets: {
-            files: ['src/assets/*', 'src/assets/**/*', 'src/assets/**/**/*'],
+            files: [folderLocations.assets + '/*', folderLocations.assets +  '/**/*', folderLocations.assets +  '/**/**/*'],
             tasks: ['copy']
         }
     },
@@ -142,6 +144,11 @@ grunt.registerTask('default', () => {
     grunt.log.writeln('Use "grunt build" to build the project.');
 });
 
+process.on('SIGINT', () => {
+    grunt.log.writeln('Shutting down development server...');
+    grunt.task.run('clean:temp');
+})
+
 grunt.registerTask('dev', () => {
     grunt.tasks(['clean:temp', 'concat', 'markdown', 'copy:assets', 'watch'], {}, () => {
         grunt.log.writeln('Development server started.');
@@ -149,7 +156,7 @@ grunt.registerTask('dev', () => {
 });
 
 grunt.registerTask('build', () => {
-    grunt.tasks(['clean:temp', 'concat', 'markdown', 'clean:dist', 'copy', 'clean:md', 'prettify']);
+    grunt.tasks(['clean:temp', 'concat', 'markdown', 'clean:dist', 'copy', 'clean:md', 'prettify', 'clean:temp']);
 
     if (minifyJs) {
         grunt.task.run('uglify');

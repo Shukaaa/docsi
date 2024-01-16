@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently --kill-others \"grunt dev\" \"vite\" -p none",
+    "dev": "concurrently --kill-others \"grunt dev\" \"vite\" -p none && grunt cleanup",
     "build": "concurrently --kill-others \"grunt build\" -p none"
   },
   "dependencies": {

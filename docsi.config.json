@@ -9,5 +9,14 @@
     "minifyJs": true,
     "minifyCss": true,
     "buildDir": "dist"
+  },
+  "fileLocations": {
+    "template": "src/template.html"
+  },
+  "folderLocations": {
+    "assets": "src/assets",
+    "pages": "src/content",
+    "css": "src/css",
+    "js": "src/js"
   }
 }
