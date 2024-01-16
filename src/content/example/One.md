@@ -4,7 +4,7 @@
 - ✍️ It is written in JS and uses Markdown as its markup language. <br/>
 - 👶 It is designed to be simple to use and easy to extend. <br/>
 - 🎨 It already comes with a default theme, but you can easily change it. <br/>
-- ⚡ You can also run and build it super fast, because it uses Vite and Grunt. <br/>
+- ⚡ You can also run and build it superfast, because it uses Vite and Grunt. <br/>
 
 ## How to use Docsi?
 
