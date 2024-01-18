@@ -1,6 +1,6 @@
 # Docsi Docs
 
-> Welcome to the Dcosi Demo! 🎉🎉🎉
+> Welcome to the Docsi Docs! 🎉🎉🎉
 
 ## What is Docsi?
 

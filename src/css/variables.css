@@ -1,0 +1,18 @@
+:root {
+    --background-color: #fff;
+    --background-color-secondary: #fafbfc;
+    --background-color-tertiary: #eaecef;
+
+    --border-color: #e1e4e8;
+    --blockquote-border-color: #dfe2e5;
+    --contrast-color: #333;
+    --contrast-color-secondary: #6a737d;
+
+    --link-color: #0366d6;
+    --mark-color: #fff69f;
+
+    --scrollbar-background-color: #f1f1f1;
+    --scrollbar-background-hover-color: #e6e6e6;
+    --scrollbar-thumb-background-color: #ccc;
+    --scrollbar-thumb-background-hover-color: #b3b3b3;
+}

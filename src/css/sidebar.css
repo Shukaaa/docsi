@@ -10,8 +10,8 @@
     width: var(--width);
     border-radius: 1em;
 
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--border-color);
     padding: 1em;
     margin: 1.25em;
 
@@ -43,16 +43,25 @@
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #333;
+    transition:
+        border-color 0.1s ease-in-out,
+        background-color 0.1s ease-in-out;
+
+    border-radius: 0.25em;
+    border: 1px solid transparent;
 }
 
 .sidebar-element-link:hover {
-    background-color: #eaecef;
-    border-radius: 0.25em;
+    background-color: var(--background-color-tertiary);
     text-decoration: none;
 }
 
 .sidebar-element-link:visited {
-    color: #333;
+    color: var(--contrast-color);
+}
+
+.sidebar-element-link:active {
+    color: var(--contrast-color);
 }
 
 .sidebar-element-link-1 {
