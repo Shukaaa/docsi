@@ -19,7 +19,7 @@ pre {
 }
 
 #content-container {
-    max-width: 1200px;
+    max-width: 75vw;
     margin: 0 auto 1em;
     padding: 0 1em;
 }
@@ -127,7 +127,6 @@ table tr:nth-child(2n) {
 img {
     max-width: 100%;
     box-sizing: border-box;
-    background-color: #fff;
 }
 
 img[align=right] {
