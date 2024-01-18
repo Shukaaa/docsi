@@ -38,7 +38,7 @@ The static site will be generated in the `dist` folder. <br/>
         - sidebar.js
     - template.html
 - .gitignore
-- docsi.config.json
+- docsi.config.js
 - package.json
 - package-lock.json
 - README.md

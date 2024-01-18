@@ -71,23 +71,17 @@ or
 
 ### Adding new pages
 
-If you want to add a new page, you can create a new Markdown file in the `content` folder. <br/>
-Then you have to register it in the `docsi.config.json` file. <br/>
+If you want to add a new page, you can create a new Markdown file in your `content` folder. <br/>
+Then you have to register it in the `docsi.config.js` file. <br/>
 
-```json
-{
-    "pageOrder": [
-        "Introduction",
-        "example/One",
-        "example/Two",
-        "example/Three",
-        "your_folder/MyPage"
-    ],
-    "build": {
-      "minifyJs": true,
-      "minifyCss": true
-    }
-}
+```js
+pageOrder: [
+  "Introduction", 
+  "Environment", 
+  "Examples", 
+  "NewPage"
+]
+...
 ```
 
 > Please note that docsi only creates single page applications. <br/>

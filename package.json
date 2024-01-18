@@ -4,9 +4,9 @@
     "build": "concurrently --kill-others \"grunt build\" -p none"
   },
   "dependencies": {
-    "concurrently": "^8.2.1",
+    "concurrently": "^8.2.2",
     "grunt": "^1.6.1",
-    "vite": "^4.4.9"
+    "vite": "^5.0.11"
   },
   "devDependencies": {
     "grunt-contrib-clean": "^2.0.1",
