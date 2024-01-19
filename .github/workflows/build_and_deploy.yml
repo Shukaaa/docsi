@@ -37,18 +37,10 @@ jobs:
           echo "Files to deploy:"
           ls -la
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          fetch-depth: 0
-
-      - name: Deploy
-        uses: milanmk/actions-file-deployer@master
-        with:
-          remote-protocol: "sftp"
-          remote-host: "ssh.strato.de"
-          remote-user: ${{ secrets.DEPLOY_USERNAME }}
-          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          remote-path: "./"
-          sync-mode: "delta"
-          source-folder: "./*"
+          server: ftp.strato.de
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          protocol: ftp
