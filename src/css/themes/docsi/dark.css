@@ -11,8 +11,8 @@
     --link-color: #0366d6;
     --mark-color: #fff69f;
 
-    --scrollbar-background-color: #f1f1f1;
-    --scrollbar-background-hover-color: #e6e6e6;
-    --scrollbar-thumb-background-color: #ccc;
-    --scrollbar-thumb-background-hover-color: #b3b3b3;
+    --scrollbar-background-color: var(--background-color-secondary);
+    --scrollbar-background-hover-color: var(--background-color-secondary);
+    --scrollbar-thumb-background-color: var(--blockquote-border-color);
+    --scrollbar-thumb-background-hover-color: var(--border-color);
 }
