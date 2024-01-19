@@ -37,6 +37,9 @@ jobs:
           echo "Files to deploy:"
           ls -la
 
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Deploy
         uses: milanmk/actions-file-deployer@master
         with:
