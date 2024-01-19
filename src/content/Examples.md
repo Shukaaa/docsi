@@ -113,19 +113,3 @@ It contains the HTML structure of the static site. <br/>
 You can add your own HTML code to it. <br/>
 
 > There you can change the title of the static site. <br/>
-
-### Tables
-
-You can use tables in the Markdown files. <br/>
-
-| Name | Age |
-| ---- | --- |
-| John | 20  |
-| Jane | 19  |
-
-````markdown
-| Name | Age |
-| ---- | --- |
-| John | 20  |
-| Jane | 19  |
-````
