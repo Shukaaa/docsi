@@ -50,5 +50,5 @@ jobs:
           remote-user: ${{ secrets.DEPLOY_USERNAME }}
           ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           remote-path: "./"
-          sync-mode: "delta"
-          source-folder: "./*"
+          sync: "delta"
+          local-path: "./*"
