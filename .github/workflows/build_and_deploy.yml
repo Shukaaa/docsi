@@ -35,7 +35,7 @@ jobs:
         run: |
           echo "Deploying to main branch"
           echo "Files to deploy:"
-          ls -la dist
+          ls -la
 
       - name: Deploy
         uses: milanmk/actions-file-deployer@master
