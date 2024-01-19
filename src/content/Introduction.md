@@ -10,11 +10,17 @@
 - 🎨 It already comes with a default theme, but you can easily change it. <br/>
 - ⚡ You can also run and build it superfast, because it uses Vite and Grunt. <br/>
 
-## How to use Docsi?
+## Installation
 
-You already are! <br/>
-Now go and edit the content of this page in `src\content\example\Introduction.md` <br/>
-> I give you a hint: it's a Markdown file. 🤯🤯🤯 <br/>
+Install the CLI globally:
 
-Now it's time to go and write some documentation! <br/>
-> If you need help, just continue reading. 😊 <br/>
+```bash
+npm install -g @docsi/cli
+```
+Then run the following command :
+
+```bash
+docsi new my-docs
+```
+
+After a few questions, the CLI will generate a new Docsi project in the `my-docs` folder.
