@@ -39,6 +39,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Deploy
         uses: milanmk/actions-file-deployer@master
